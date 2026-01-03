@@ -69,6 +69,7 @@ Result fetchTrainData() {
     if (https.begin(httpClient, url)) {
         https.addHeader("Content-Type", "application/json");
         https.useHTTP10(true);
+        https.setTimeout(5000);
         
         Serial.println("[HTTP] Sending GET request...");
         int httpCode = https.GET();
